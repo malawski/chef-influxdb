@@ -2,7 +2,7 @@
 
 # Attributes for InfluxDB
 
-default['influxdb']['version'] = '0.13.0'
+default['influxdb']['version'] = '1.0.0-1'
 default['influxdb']['install_type'] = 'package'
 
 default['influxdb']['download_urls'] = {
@@ -69,7 +69,7 @@ default['influxdb']['config'] = {
     'retry-max-interval' => '1m0s',
     'purge-interval' => '1h0m0s'
   },
-  'cluster' => {
+  'coordinator' => {
     'write-timeout' => '10s',
     'shard-writer-timeout' => '5s'
   },
@@ -108,12 +108,16 @@ default['influxdb']['config'] = {
       'enabled' => false
     }
   ],
-  'collectd' => {
-    'enabled' => false
-  },
-  'opentsdb' => {
-    'enabled' => false
-  },
+  'collectd' => [
+    {
+     'enabled' => false
+    }
+  ],
+  'opentsdb' => [
+    {
+     'enabled' => false
+    }
+  ],
   'udp' => [
     {
       'enabled' => false
